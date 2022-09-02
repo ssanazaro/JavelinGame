@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
-		if (collisionInfo.gameObject.tag.Equals("Ground") || collisionInfo.gameObject.tag.Equals("Javelin"));
+		if (collisionInfo.gameObject.tag.Equals("Ground") || collisionInfo.gameObject.tag.Equals("Javelin"))
 		{
 			isGrounded = true;
 		}
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag.Equals("Ground"))
+		if (collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Javelin"))
 		{
 			isGrounded = false;
 		}
