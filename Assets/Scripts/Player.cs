@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 	}
 
 	// Update is called once per frame
@@ -30,15 +31,17 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
-		if (collisionInfo.gameObject.tag.Equals("Ground"))
+		if (collisionInfo.gameObject.tag.Equals("Ground") || collisionInfo.gameObject.tag.Equals("Javelin"));
 		{
 			isGrounded = true;
 		}
-		if (collisionInfo.gameObject.tag.Equals("Javelin"))
+		if (collisionInfo.gameObject.tag.Equals("Wall"))
 		{
-			hasJavelin = true;
-			Destroy(collisionInfo.gameObject);
-
+			isGrounded = false;
+		}
+		if (collisionInfo.gameObject.tag.Equals("Enemy") || collisionInfo.gameObject.tag.Equals("Hazard"))
+		{
+			Destroy(gameObject);
 		}
 	}
 

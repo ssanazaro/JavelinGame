@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space) && player.isGrounded == true)
 		{
-			Debug.Log("Jump");
 			Jump();
 		}
 		Movement();
